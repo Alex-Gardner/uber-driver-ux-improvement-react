@@ -1,0 +1,12 @@
+{
+  "name": "uber-nav-ux",
+  "version": "1.0.0",
+  "description": "Mock of slightly improved uber navigation ux",
+  "main": "index.js",
+  "author": "Alx",
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}

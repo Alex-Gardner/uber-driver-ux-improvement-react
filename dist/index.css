@@ -1,0 +1,90 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.phone-outline {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 250px;
+    min-height: 400px;
+    height: 60vh;
+    width: 20vw;
+    border: 5px solid black;
+    border-radius: 10px;
+    overflow: visible;
+}
+
+/* ----------------------**Top Panel**---------------------- */
+.top-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    min-height: 8%;
+    min-width: 100%;
+    height: 8%;
+    width: 100%;
+    box-shadow: 0px 2px 20px grey;
+}
+.trip-type {
+    margin-left: auto;
+}
+.svg-hamburger {
+    margin-left: auto;
+    margin-right: 0;
+    height: 5vh;
+    width: 5vh;
+}
+
+/* ----------------------**Bottom Panel**---------------------- */
+.bottom-panel {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* height: 20%; */
+    width: 100%;
+    /* min-width: 100%; */
+    min-height: 25%;
+    /* border: 3px solid orange; */
+}
+.bottom-panel-client-name {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    padding-left: 2px;
+    border-top: 1px solid black;
+    /* border-bottom: 1px solid black; */
+}
+.trip-complete-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    border-top: 1px solid black;
+}
+.trip-complete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    color: #fff;
+    width: 90%;
+    height: 70%;
+}
+
+.non-interactive-map {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    /* object-fit: contain; */
+    height: 60%;
+    width: 100%;
+    /* min-width: 100%;  */
+    flex-grow: 1;
+}
