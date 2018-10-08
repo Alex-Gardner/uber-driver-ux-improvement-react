@@ -26,22 +26,41 @@ class AppShell extends React.Component {
             isNavigating: this.state.isNavigating,
         })
     }
-    
+    readNavState() {
+        return (
+            this.state.isNavigating ? 'active' : null
+            )
+    }
+    readLoadingState() {
+        return (
+            this.state.isLoading ? 'active' : null
+        )
+    }
     render() {
         console.log(this.state)
         return (
             <main>
-                <h1>hey</h1>
-                <Stage1 />
-                <button onClick={this.handleNavStatusToggle}> Nav Status </button>
-                <button onClick={this.handleLoadingStatusToggle}> Loading Status </button>
+                {/* <Stage1 /> */}
+                <div className='button-holder'>
+                    <button onClick={this.handleNavStatusToggle} className={this.readNavState()} type='button'> Nav Status </button>
+                    <button onClick={this.handleLoadingStatusToggle} className={this.readLoadingState()} type='button'> Loading Status </button>
+                </div>
                 <Outline isNavigating={this.state.isNavigating} isLoading={this.state.isLoading} />
-                {/* <Outline /> */}
             </main>
         )
     }
 }
 
-ReactDOM.render(<AppShell />, document.getElementById('app'))
+function Comparison() {
+    return (
+        <div className='app-holder'>
+            <AppShell />
+            <br />
+            <AppShell />
+        </div>
+    )
+}
+
+ReactDOM.render(<Comparison />, document.getElementById('app'))
 
 console.log('app started')

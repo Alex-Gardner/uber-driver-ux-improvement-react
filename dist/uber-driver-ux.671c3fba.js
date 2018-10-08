@@ -19909,6 +19909,10 @@ function TripTypeOrAddress(props) {
     ) : _react2.default.createElement(AddressTitle, null);
 }
 
+function LoadingAnimation(props) {
+    return props.isLoading ? _react2.default.createElement('div', { className: 'loading-slider' }) : null;
+}
+
 function Outline(props) {
     return _react2.default.createElement(
         'div',
@@ -19922,7 +19926,12 @@ function Outline(props) {
                 props.isNavigating ? _react2.default.createElement(DestinationAddress, { isLoading: props.isLoading }) : _react2.default.createElement(TripTypeOrAddress, { isLoading: props.isLoading }),
                 _react2.default.createElement('img', { src: _settingsHamburger2.default, className: 'svg-hamburger' })
             ),
-            _react2.default.createElement(AddressDiv, { isLoading: props.isLoading })
+            _react2.default.createElement(AddressDiv, { isLoading: props.isLoading }),
+            _react2.default.createElement(
+                'div',
+                { className: 'inside-animator' },
+                _react2.default.createElement(LoadingAnimation, { isLoading: props.isLoading })
+            )
         ),
         _react2.default.createElement('img', { src: _fakemapWithPath2.default, className: 'non-interactive-map' }),
         _react2.default.createElement(
@@ -20013,6 +20022,16 @@ var AppShell = function (_React$Component) {
             });
         }
     }, {
+        key: 'readNavState',
+        value: function readNavState() {
+            return this.state.isNavigating ? 'active' : null;
+        }
+    }, {
+        key: 'readLoadingState',
+        value: function readLoadingState() {
+            return this.state.isLoading ? 'active' : null;
+        }
+    }, {
         key: 'render',
         value: function render() {
             console.log(this.state);
@@ -20020,20 +20039,18 @@ var AppShell = function (_React$Component) {
                 'main',
                 null,
                 _react2.default.createElement(
-                    'h1',
-                    null,
-                    'hey'
-                ),
-                _react2.default.createElement(_stage2.default, null),
-                _react2.default.createElement(
-                    'button',
-                    { onClick: this.handleNavStatusToggle },
-                    ' Nav Status '
-                ),
-                _react2.default.createElement(
-                    'button',
-                    { onClick: this.handleLoadingStatusToggle },
-                    ' Loading Status '
+                    'div',
+                    { className: 'button-holder' },
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.handleNavStatusToggle, className: this.readNavState(), type: 'button' },
+                        ' Nav Status '
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.handleLoadingStatusToggle, className: this.readLoadingState(), type: 'button' },
+                        ' Loading Status '
+                    )
                 ),
                 _react2.default.createElement(_phoneContainer2.default, { isNavigating: this.state.isNavigating, isLoading: this.state.isLoading })
             );
@@ -20043,7 +20060,17 @@ var AppShell = function (_React$Component) {
     return AppShell;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(AppShell, null), document.getElementById('app'));
+function Comparison() {
+    return _react2.default.createElement(
+        'div',
+        { className: 'app-holder' },
+        _react2.default.createElement(AppShell, null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(AppShell, null)
+    );
+}
+
+_reactDom2.default.render(_react2.default.createElement(Comparison, null), document.getElementById('app'));
 
 console.log('app started');
 },{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./stage1.js":"stage1.js","./phone-container.js":"phone-container.js"}],"../../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -20075,7 +20102,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '46287' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '46561' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

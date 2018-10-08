@@ -11,7 +11,15 @@ make your html and javascript files
 
 note: remember to load your js script after the body of your html
 
-quick todo: 8/27
-make the current view read from state
-create other views and state change functions
+quick todo: 9/24
+make sure buttons describe current loading status
+make overlays describing ui errors
+create new view with 'better options'
 
+
+Issues: 
+'Trip Type' isn't centered with regard to parent container
+    -> could float the hamburger menu
+Loading animation doesn't expand and contract like original 
+    -> issue with centering bar at the 50% mark
+Utilize inversion of control to make a screen component with better practices

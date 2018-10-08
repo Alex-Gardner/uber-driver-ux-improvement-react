@@ -32,6 +32,14 @@ function TripTypeOrAddress(props) {
     )
 }
 
+function LoadingAnimation(props) {
+    return (
+        props.isLoading ? (
+            <div className='loading-slider'></div>
+        ) : null 
+    )
+}
+
 export default function Outline(props) {
     return (
         <div className='phone-outline'>
@@ -43,6 +51,9 @@ export default function Outline(props) {
                 </div>
                 <AddressDiv isLoading={props.isLoading}/>
                 {/* {props.isLoading ? null : (<div> {mockAddress} </div>)} */}
+                <div className='inside-animator'>
+                    <LoadingAnimation isLoading={props.isLoading}/> 
+                </div>
             </div>
             <img src={mapUrl} className='non-interactive-map' />
             <div className='bottom-panel'>
